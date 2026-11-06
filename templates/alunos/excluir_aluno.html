@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="form-container">
+    <h2>Remover Aluno</h2>
+    <p>Tem certeza que deseja remover o aluno <strong>{{ aluno.nome }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, remover</button>
+        <a href="{% url 'listar_alunos' %}">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

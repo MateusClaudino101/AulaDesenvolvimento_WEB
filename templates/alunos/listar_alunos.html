@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <h1>Alunos</h1>
+    <br>
+    <ul>
+        {% for a in alunos %}
+            <li><a href="{% url 'detalhar_aluno' a.pk %}">{{ a.nome }}</a> - {{ a.email }} -- <a href="{% url 'alterar_aluno' a.pk %}">Alterar</a> | <a href="{% url 'excluir_aluno' a.pk %}">Excluir</a> </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'cadastrar_aluno' %}">Novo</a>
+{% endblock %}

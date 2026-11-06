@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+    {% if aluno %}
+        <h1>{{ aluno.nome }}</h1>
+
+        <p><strong>E-mail: </strong>{{ aluno.email }}</p>
+        <p><strong>Matrícula: </strong>{{ aluno.matricula }}</p>
+
+        <br><br>
+        {% if aluno.solicitacoes.all %}
+            <h2>Solicitações</h2>
+            <ul>
+                {% for s in aluno.solicitacoes.all %}
+                    <li>{{ s.titulo }} - {{ s.data|date:"d/m/Y H:i" }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% else %}
+        <h1>Aluno não existe.</h1>
+    {% endif %}
+
+{% endblock %}
